@@ -3,14 +3,23 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Pokemon from './components/Pokemon';
+import PokemonV1 from './components/PokemonV1';
+import PokemonV2 from './components/PokemonV2';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const promise = fetch('https://pokeapi.co/api/v2/pokemon/bulbasaur')
+    .then(res => res.ok ? res.json() : Promise.reject('Failed to load Pokémon data'));
 
   return (
     <>
       <Suspense fallback={<p>Loading Pokémon…</p>}>
         <Pokemon name="pikachu" />
+      </Suspense>
+      <Suspense fallback={<p>Loading Pokémon 1…</p>}>
+        <PokemonV1 />
+      </Suspense>
+      <Suspense fallback={<p>Loading Pokémon 2…</p>}>
+        <PokemonV2 data={promise} />
       </Suspense>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -22,9 +31,9 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </button> */}
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
