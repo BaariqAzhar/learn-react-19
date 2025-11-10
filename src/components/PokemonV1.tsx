@@ -36,6 +36,7 @@ const PokemonV1 = () => {
             ) : (
                 <p>Loading Pokémon data...</p>
             )}
+            <hr />
         </>
     );
 }

@@ -1,10 +1,11 @@
-import { Suspense, useState } from 'react'
+import { Suspense } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Pokemon from './components/Pokemon';
 import PokemonV1 from './components/PokemonV1';
 import PokemonV2 from './components/PokemonV2';
+import PokemonUseTransitionV1 from './components/PokemonUseTransitionV1';
 
 function App() {
   const promise = fetch('https://pokeapi.co/api/v2/pokemon/bulbasaur')
@@ -12,6 +13,9 @@ function App() {
 
   return (
     <>
+      <Suspense fallback={<p>Loading PokemonUseTransitionV1 …</p>}>
+        <PokemonUseTransitionV1 />
+      </Suspense>
       <Suspense fallback={<p>Loading Pokémon…</p>}>
         <Pokemon name="pikachu" />
       </Suspense>

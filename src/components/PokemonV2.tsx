@@ -24,6 +24,7 @@ const PokemonV2 = ({ data }) => {
             ) : (
                 <p>Loading Pokémon data...</p>
             )}
+            <hr />
         </>
     );
 }

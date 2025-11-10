@@ -48,6 +48,7 @@ function Pokemon({ name }: PokemonProps) {
 
   return (
     <section className="pokemon-card">
+      <div>Pokemon</div>
       <h2>{pokemon.name}</h2>
       {pokemon.sprites.front_default ? (
         <img
@@ -69,6 +70,7 @@ function Pokemon({ name }: PokemonProps) {
           {pokemon.types.map(({ type }) => type.name).join(', ')}
         </dd>
       </dl>
+      <hr />
     </section>
   )
 }
