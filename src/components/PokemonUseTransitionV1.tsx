@@ -38,7 +38,7 @@ const PokemonUseTransitionV1 = () => {
     return (
         <>
             <div>PokemonUseTransitionV1 Component</div>
-            <button onClick={handleUpgrade}>{count === CHARMANDER_LIST.length - 1 ? 'restart' : 'upgrade'}</button>
+            <button disabled={isPending} onClick={handleUpgrade}>{count === CHARMANDER_LIST.length - 1 ? 'restart' : 'upgrade'}</button>
             {isPending ? (
                 <p>Loading Pokémon data...</p>
             ) : <div>
